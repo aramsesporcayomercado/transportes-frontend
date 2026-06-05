@@ -174,7 +174,7 @@ export default function OperadoresTable({
 }
 
 function SortTh({ campo, label, filtros, setFiltros }) {
-  const activo = filtros.sort === campo
+  const activo = o.activo === true
   const handleClick = () => {
     if (activo) {
       setFiltros({ order: filtros.order === 'asc' ? 'desc' : 'asc' })
@@ -199,7 +199,7 @@ function SortTh({ campo, label, filtros, setFiltros }) {
 function FilaOperador({ operador: o, selected, onToggleSelect, onVerDetalle, onEditar, onCambiarEstatus }) {
   const venc  = isVencida(o.vigencia_licencia)
   const pvenc = isPorVencer(o.vigencia_licencia)
-  const activo = o.estatus === 'activo'
+  const activo = o.activo === true
 
   return (
     <tr
@@ -220,12 +220,11 @@ function FilaOperador({ operador: o, selected, onToggleSelect, onVerDetalle, onE
       </td>
 
       <td>
-        <div className="cell-name">
-          {o.apellido_paterno} {o.nombre}
-        </div>
-        <div className="cell-sub">{o.apellido_materno || ''}</div>
+      <div className="cell-name">
+        {o.nombre_completo || `${o.nombre || ''} ${o.apellido_paterno || ''}`.trim() || '—'}
+      </div>
+      <div className="cell-sub">{o.no_empleado || ''}</div>      
       </td>
-
       <td>
         {activo ? (
           <span className="badge b-ok">
