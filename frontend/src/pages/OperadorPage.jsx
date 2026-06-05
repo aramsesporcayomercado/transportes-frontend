@@ -42,9 +42,9 @@ export default function OperadoresPage() {
   }
 
   // Métricas
-  const totalActivos   = operadores.filter((o) => o.estatus === 'activo').length
-  const totalInactivos = operadores.filter((o) => o.estatus === 'inactivo').length
-  const enViaje        = operadores.filter((o) => o.en_viaje).length
+  const totalActivos   = operadores.filter((o) => o.activo === true).length
+  const totalInactivos = operadores.filter((o) => o.activo === false).length
+  const enViaje        = operadores.filter((o) => o.en_viaje === true).length
 
   // Drawer handlers
   function abrirDrawer(operador) {
@@ -73,19 +73,19 @@ export default function OperadoresPage() {
     refetch()
     cerrarForm()
     mostrarToast(
-      operadorEdicion
-        ? `Operador ${operadorGuardado.no_empleado} actualizado.`
-        : `Operador ${operadorGuardado.no_empleado} creado.`
-    )
+    operadorEdicion
+    ? `Operador ${operadorGuardado.no_empleado ?? operadorGuardado.nombre_completo} actualizado.`
+    : `Operador ${operadorGuardado.no_empleado ?? operadorGuardado.nombre_completo} creado.`
+)
   }
 
   // Confirm handlers
   function pedirConfirmCambioEstatus(operador) {
-    if (operador.estatus === 'activo' && operador.en_viaje) {
+    if (operador.activo === true && operador.en_viaje) {
       mostrarToast(`${operador.no_empleado} tiene un viaje activo.`, 'warn')
       return
     }
-    const bajando = operador.estatus === 'activo'
+    const bajando = operador.activo === true
     setConfirm({
       titulo:   bajando ? `Dar de baja a ${operador.no_empleado}` : `Reactivar a ${operador.no_empleado}`,
       cuerpo:   bajando
