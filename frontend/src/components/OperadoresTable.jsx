@@ -174,7 +174,7 @@ export default function OperadoresTable({
 }
 
 function SortTh({ campo, label, filtros, setFiltros }) {
-  const activo = o.activo === true
+  const activo = filtros.sort === campo
   const handleClick = () => {
     if (activo) {
       setFiltros({ order: filtros.order === 'asc' ? 'desc' : 'asc' })

@@ -32,7 +32,7 @@ export default function OperadorDrawer({ operador, abierto, onCerrar, onEditar, 
     return () => document.removeEventListener('keydown', handler)
   }, [onCerrar])
 
-  const activo = operador?.estatus === 'activo'
+  const activo = operador?.activo === true
   const venc   = isVencida(operador?.vigencia_licencia)
   const pvenc  = isPorVencer(operador?.vigencia_licencia)
 
@@ -49,8 +49,9 @@ export default function OperadorDrawer({ operador, abierto, onCerrar, onEditar, 
           <div>
             <div className="drawer-dname">
               {operador
-                ? `${operador.nombre} ${operador.apellido_paterno} ${operador.apellido_materno || ''}`.trim()
-                : '—'}
+              ? operador.nombre_completo ||
+              `${operador.nombre || ''} ${operador.apellido_paterno || ''} ${operador.apellido_materno || ''}`.trim()
+              : '—'}
             </div>
             <div className="drawer-demp">{operador?.no_empleado || '#—'}</div>
           </div>

@@ -88,49 +88,54 @@ export function useOperadores() {
 
 
   const fetchOperadores = useCallback(
-    async (overridePage) => {
-      setLoading(true);
-      setError(null);
+  async (overridePage) => {
+    setLoading(true);
+    setError(null);
 
-      try {
-        const result = await getOperadores({
-          page:     overridePage ?? page,
-          limit,
-          search:   filtros.search   || undefined,
-          estatus:  filtros.estatus  || undefined,
-          licencia: filtros.licencia || undefined,
-          sort:     filtros.sort,
-          order:    filtros.order,
-        });
+    try {
+      const result = await getOperadores({
+        page:     overridePage ?? page,
+        limit,
+        search:   filtros.search   || undefined,
+        estatus:  filtros.estatus  || undefined,
+        licencia: filtros.licencia || undefined,
+        sort:     filtros.sort,
+        order:    filtros.order,
+      });
 
-        if (!mountedRef.current) return;
+      if (!mountedRef.current) return;
 
-        setOperadores(result.data   ?? []);
-        setTotal(     result.total  ?? 0);
-      } catch (err) {
-        if (!mountedRef.current) return;
-
-        // Log estructurado sin exponer stack completo en prod (A09)
-        console.error('[useOperadores] Error al cargar operadores', {
-          status:  err?.response?.status,
-          message: err?.message,
-        });
-
-        // Mensajes amigables según código HTTP
-        const status = err?.response?.status;
-        if (status === 401 || status === 403) {
-          setError('No tienes permiso para ver esta información.');
-        } else if (status >= 500) {
-          setError('Error del servidor. Intenta de nuevo en unos momentos.');
-        } else {
-          setError('No se pudo cargar la lista de operadores.');
-        }
-      } finally {
-        if (mountedRef.current) setLoading(false);
+      // Backend devuelve array directo, no { data, total }
+      if (Array.isArray(result)) {
+        setOperadores(result);
+        setTotal(result.length);
+      } else {
+        // Fallback por si en algún momento Django pagina
+        setOperadores(result.results ?? result.data ?? []);
+        setTotal(result.count ?? result.total ?? 0);
       }
-    },
-    [page, limit, filtros],
-  );
+    } catch (err) {
+      if (!mountedRef.current) return;
+
+      console.error('[useOperadores] Error al cargar operadores', {
+        status:  err?.response?.status,
+        message: err?.message,
+      });
+
+      const status = err?.response?.status;
+      if (status === 401 || status === 403) {
+        setError('No tienes permiso para ver esta información.');
+      } else if (status >= 500) {
+        setError('Error del servidor. Intenta de nuevo en unos momentos.');
+      } else {
+        setError('No se pudo cargar la lista de operadores.');
+      }
+    } finally {
+      if (mountedRef.current) setLoading(false);
+    }
+  },
+  [page, limit, filtros],
+);
 
   // Debounce: cuando cambia `search` esperamos DEBOUNCE_MS antes de buscar.
   useEffect(() => {
