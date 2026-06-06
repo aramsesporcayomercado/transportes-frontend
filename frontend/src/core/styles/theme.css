@@ -1,0 +1,27 @@
+/*  theme.css Variables dark/light  */
+/* useThemeStore aplica class="dark" al <html> — ese es el contrato */
+
+/* Dark (default) */
+:root, html.dark {
+  --bg:        #0F172A;
+  --card:      #1E293B;
+  --page-bg:   #0F172A;
+  --text:      #E2E8F0;
+  --text-muted:#64748B;
+  --border:    rgba(55,138,221,.18);
+}
+
+/* Light — cuando useThemeStore quita la clase dark */
+/* Como toggleTheme solo agrega/quita dark, usamos html:not(.dark) */
+html:not(.dark) {
+  --bg:        #F1F5F9;
+  --card:      #FFFFFF;
+  --page-bg:   #F1F5F9;
+  --text:      #0F172A;
+  --text-muted:#64748B;
+  --border:    #DBEAFE;
+
+  /* Override aliases para modo claro */
+  --color-dash-bg:   #F1F5F9;
+  --color-dash-card: #FFFFFF;
+}

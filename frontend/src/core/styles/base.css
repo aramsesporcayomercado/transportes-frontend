@@ -1,0 +1,34 @@
+/* base.css  Reset y estilos globales de body  */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  text-align: left;
+  border-inline: none;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+::-webkit-scrollbar       { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--blue-900); border-radius: 3px; }
+html:not(.dark) ::-webkit-scrollbar-thumb { background: var(--blue-200); }
+::-webkit-scrollbar-thumb:hover { background: var(--blue-800); }
+html:not(.dark) ::-webkit-scrollbar-thumb:hover { background: var(--blue-400); }

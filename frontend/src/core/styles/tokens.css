@@ -1,0 +1,39 @@
+/* tokens.css Paleta, tipografía, radios  */
+:root {
+  --blue-900:    #042C53;
+  --blue-800:    #0C447C;
+  --blue-600:    #185FA5;
+  --blue-400:    #378ADD;
+  --blue-200:    #85B7EB;
+  --blue-100:    #B5D4F4;
+  --blue-50:     #E6F1FB;
+  --cyan:        #0EA5E9;
+  --grad:        linear-gradient(135deg, #2D57EE, #2DD7EE);
+
+  --ok:          #16A34A;
+  --ok-dim:      rgba(22,163,74,.13);
+  --pending:     #EA580C;
+  --pending-dim: rgba(234,88,12,.13);
+  --danger:      #DC2626;
+  --danger-dim:  rgba(220,38,38,.13);
+  --done:        #6B7280;
+  --done-dim:    rgba(107,114,128,.13);
+
+  --font-mono:   'IBM Plex Mono', monospace;
+  --font-disp:   'Syne', sans-serif;
+
+  /* Aliases para componentes existentes que usan estas vars */
+  --color-dash-bg:      #0F172A;
+  --color-dash-card:    #1E293B;
+  --color-blue-50:      #E6F1FB;
+  --color-blue-100:     #B5D4F4;
+  --color-blue-200:     #85B7EB;
+  --color-blue-400:     #378ADD;
+  --color-blue-900:     #042C53;
+  --color-cyan:         #0EA5E9;
+  --font-display-dash:  'Syne', sans-serif;
+  --font-body-dash:     'IBM Plex Mono', monospace;
+
+  --radius:    6px;
+  --radius-lg: 10px;
+}
