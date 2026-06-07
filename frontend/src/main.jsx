@@ -6,7 +6,6 @@ import { useThemeStore } from './shared/store/useThemeStore'
 import './core/styles/tokens.css'
 import './core/styles/theme.css'
 import './core/styles/base.css'
-import './index.css'  
 
 useThemeStore.getState().initTheme()
 

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { useNanobot } from '../hooks/useNanobot'
+import { useNanobot } from '../hooks/Usenanobot'
 
 // Detecta si el mensaje contiene coordenadas y las extrae.
 // Nanobot devuelve algo como: "Latitud: 32.5149, Longitud: -117.0382"

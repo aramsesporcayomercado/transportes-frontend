@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { AuthContext } from '../context/AuthContext'
-import { PageWrapper } from '../components/layout/PageWrapper'
-import { useTheme } from '../hooks/useTheme'
-import api from '../api/axiosInstance'
+import { AuthContext } from '../../../shared/context/AuthContext'
+import { PageWrapper } from '../../../shared/components/layout/PageWrapper'
+import { useTheme } from '../../../shared/hooks/useTheme'
+import api from '../../../shared/api/axiosInstance'
 
 // Colores de status — centralizados aquí para reutilizar
 const STATUS_CONFIG = {

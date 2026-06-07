@@ -1,13 +1,9 @@
-/* Hallmark · macrostructure: Centered Auth · theme: Custom (brand blues) · variant: UNIFIED
- * accent: #2D57EE→#2D98EE→#2DD7EE
- * Integrates: AuthContext · React Router redirect por rol
- * FIX: full-bleed background, responsive layout
- */
+
 
 import { useState, useEffect, useContext } from "react"
 import { useNavigate } from "react-router-dom"
-import { AuthContext } from "../context/AuthContext"
-import { login as apiLogin } from "../api/auth"
+import { AuthContext } from "../../../shared/context/AuthContext"
+import { login as apiLogin } from "../../../shared/api/auth"
 
 const GRADIENT   = "linear-gradient(90deg, #2D57EE 0%, #2D98EE 51%, #2DD7EE 100%)"
 const HOVER_BLUE = "#2DB4EE"

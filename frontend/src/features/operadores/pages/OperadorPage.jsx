@@ -3,6 +3,7 @@ import { useOperadores } from '../hooks/Useoperador'
 import OperadoresTable from '../components/OperadoresTable'
 import OperadorDrawer from '../components/OperadorDrawer'
 import OperadorForm from '../components/OperadorForm'
+import '../styles/operadores.css'
 
 export default function OperadoresPage() {
   const {

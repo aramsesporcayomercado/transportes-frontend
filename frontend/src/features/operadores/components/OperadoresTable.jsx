@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { useTheme } from '../hooks/useTheme'
+import { useTheme } from '../../../shared/hooks/useTheme'
 
 
 const fd = (s) => {

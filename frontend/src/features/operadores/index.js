@@ -1,0 +1,1 @@
+export { default as OperadoresPage } from './pages/OperadorPage'

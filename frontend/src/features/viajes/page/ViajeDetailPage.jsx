@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { getViaje } from '../api/viajes'
-import { useViajeWebSocket } from '../hooks/useViajeWebSocket'
+import { useViajeWebSocket } from '../../../shared/hooks/useViajeWebSocket'
 import { MapaViaje } from '../components/MapaViaje'
 import { StatusBadge } from '../components/StatusBadge'
 

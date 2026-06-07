@@ -1,4 +1,4 @@
-import client from './client'
+import client from '../../../shared/api/client'
 
 export const getViajes   = (params = {}) => client.get('/viajes/',             { params }).then(r => r.data)
 export const getViaje    = (id)           => client.get(`/viajes/${id}/`).then(r => r.data)

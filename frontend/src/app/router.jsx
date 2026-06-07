@@ -1,14 +1,11 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { PrivateRoute } from '../shared/components/layout/PrivateRoute'
 import { RoleGuard }    from '../shared/components/layout/RoleGuard'
-
-// Pages — se irán moviendo a features/ en tareas siguientes
-// Por ahora importamos de pages/ para no romper nada
-import LoginPage           from '../pages/LoginPage'
-import { DashboardPage }   from '../pages/DashboardPage'
-import { ViajeDetailPage } from '../pages/ViajeDetailPage'
-import OperadoresPage      from '../pages/OperadorPage'
-import NanobotPage         from '../pages/NanobotPage'
+import LoginPage           from '../features/login/pages/LoginPage'
+import { DashboardPage }   from '../features/dashboard/pages/DashboardPage'
+import { ViajeDetailPage } from '../features/viajes/page/ViajeDetailPage'
+import NanobotPage         from '../features/nanobot/page/NanobotPage'
+import { OperadoresPage } from '../features/operadores'
 
 const ADMIN_LOG = ['superadmin', 'logistica']
 const TODOS     = ['superadmin', 'logistica', 'operador', 'cliente']

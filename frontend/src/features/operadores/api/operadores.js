@@ -15,7 +15,7 @@
  *  - A08 Software & Data Integrity → los IDs se validan antes de enviar.
  */
 
-import api from './axiosInstance'; // instancia con baseURL + interceptor de auth 
+import api from '../../../shared/api/axiosInstance'; // instancia con baseURL + interceptor de auth 
 
 /**
  * Valida que un ID sea un entero positivo.
