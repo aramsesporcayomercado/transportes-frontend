@@ -4,6 +4,7 @@ import OperadoresTable from '../components/OperadoresTable'
 import OperadorDrawer from '../components/OperadorDrawer'
 import OperadorForm from '../components/OperadorForm'
 import '../styles/operadores.css'
+import { PageWrapper } from '../../../shared/components/layout/PageWrapper'
 
 export default function OperadoresPage() {
   const {
@@ -116,6 +117,7 @@ export default function OperadoresPage() {
   }
 
   return (
+    <PageWrapper title="Operadores">
     <div className="body-layout">
 
       {/* PAGE HEADER */}
@@ -213,10 +215,10 @@ export default function OperadoresPage() {
       )}
 
     </div>
+    </PageWrapper>
   )
 }
 
-// Vive aquí por ahora. Al migrar a features → components/ui/ConfirmModal.jsx
 function ConfirmModal({ titulo, cuerpo, variante, onConfirmar, onCancelar }) {
   return (
     <div className="overlay open">
